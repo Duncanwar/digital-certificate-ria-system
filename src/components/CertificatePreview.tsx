@@ -6,33 +6,52 @@ interface Props {
     certNumber: string;
     image: File | null;
     imagePreview?: string | null;
+    member: string;
 }
 
-export default function CertificatePreview({ name, year, certNumber, imagePreview }: Props) {
+export default function CertificatePreview({ name, year, certNumber, imagePreview,member }: Props) {
     const qrValue = `https://ria.org.rw/verify/${certNumber}`;
 
     return (
-        <div className="relative w-[800px] h-[600px] border bg-white mt-6 p-10 shadow-xl">
-            {/* Name */}
-            <h2 className="absolute top-[200px] left-[150px] text-2xl font-bold">Arch. {name}</h2>
+      <div
+  id="certificate-preview"
+  className="relative w-[1123px] h-[794px] bg-white shadow-xl"
+  style={{
+    backgroundImage: "url('/TemplateRIA.jpg')",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  }}
+>
+          <h2 className="absolute top-[400px] left-[425px] text-2xl font-bold text-black">
+  Arch. {name}
+</h2>
 
-            {/* Year */}
-            <p className="absolute top-[250px] left-[150px]">Architect in the year of {year}</p>
+<p className="absolute top-[330px] left-[390px] text-black">
+  <span className="font-bold">Architect in the year of {year} as a Professional Chartered Member</span>
+as a  of the Institute,
+in accordance with the terms of a complying member under the Architects, Landscape Arch itects, Urban Designers, and Interior Designers registration and building codes within the laws of Rwanda.
+</p>
 
-            {/* Cert Number */}
-            <p className="absolute top-[300px] left-[150px]">Certificate No: {certNumber}</p>
+{/* <p className="absolute top-[370px] left-[390px] text-black">
+  Certificate No: {certNumber}
+</p> */}
 
-            {/* QR Code */}
-            <div className="absolute top-[350px] right-[100px]">
-                <QRCode value={qrValue} size={100} />
-            </div>
+{imagePreview && (
+  <img
+    src={imagePreview}
+    alt="Profile"
+    className="absolute top-[270px] left-[130px] w-[100px] h-[100px] object-cover rounded"
+  />
+)}
 
-            {/* Image */}
-            {imagePreview && (
-                <img src={imagePreview} alt="Profile" className="absolute top-[150px] left-[50px] w-24 h-24 object-cover" />
-            )}
-
-            {/* Placeholder seals, logos, etc. would go here */}
+<div className="absolute top-[465px] right-[95px]">
+  <QRCode value={qrValue} size={100} />
+</div>
         </div>
     );
 }
+
+
+  {/* Overlay text and QR code here */}
+// </div>
+

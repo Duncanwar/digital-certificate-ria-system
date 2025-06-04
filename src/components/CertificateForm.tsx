@@ -11,6 +11,7 @@ export default function CertificateForm() {
         year: "2024",
         certNumber: "",
         image: null as File | null,
+        member: "",
     });
     const [previewURL, setPreviewURL] = useState<string | null>(null);
 
@@ -22,6 +23,11 @@ export default function CertificateForm() {
         } else {
             setForm({ ...form, [name]: value });
         }
+    }
+
+    function handleSelect(e: React.ChangeEvent<HTMLSelectElement>) {
+const {name, value} = e.target;
+        setForm((prev) => ({ ...prev, [name]: value }));
     }
 
     async function handleDownload() {
@@ -41,6 +47,11 @@ export default function CertificateForm() {
             <input name="certNumber" placeholder="Certificate Number" onChange={handleChange} className="border p-2" />
             <input name="year" placeholder="Year" onChange={handleChange} className="border p-2" />
             <input type="file" accept="image/*" onChange={handleChange} className="border p-2" />
+            <select name="member"  onChange={handleSelect} className="border p-2">
+                <option value="">Select Member Type</option>
+                <option value="Planner">Planner</option>
+                <option value="Architect">Architect</option>
+            </select>
 
             <button
                 onClick={handleDownload}
