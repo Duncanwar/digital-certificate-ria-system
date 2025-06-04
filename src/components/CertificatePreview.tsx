@@ -26,10 +26,10 @@ export default function CertificatePreview({ name, year, certNumber, imagePrevie
   Arch. {name}
 </h2>
 
-<p className="absolute top-[330px] left-[390px] text-black">
+<p className="absolute top-[500px] left-[200px] text-black">
   <span className="font-bold">Architect in the year of {year} as a Professional Chartered Member</span>
 as a  of the Institute,
-in accordance with the terms of a complying member under the Architects, Landscape Arch itects, Urban Designers, and Interior Designers registration and building codes within the laws of Rwanda.
+in accordance with the terms of a complying member under the Architects, <br></br>Landscape Arch itects, Urban Designers, and Interior Designers registration and building codes within the laws of Rwanda.
 </p>
 
 {/* <p className="absolute top-[370px] left-[390px] text-black">
