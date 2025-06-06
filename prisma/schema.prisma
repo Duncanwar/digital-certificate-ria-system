@@ -13,3 +13,17 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Certificate {
+  id                     String   @id @default(cuid())
+  name                   String
+  year                   String
+  certNumber             String   @unique
+  imageUrl               String?
+  createdAt              DateTime @default(now())
+  registeredSerialNumber String?  @unique
+}
+
+model Members {
+  id String @id @default(cuid())
+}
