@@ -1,4 +1,5 @@
 // components/CertificatePreview.tsx
+import Image from "next/image";
 import QRCode from "react-qr-code";
 
 interface Props {
@@ -18,7 +19,7 @@ export default function CertificatePreview({ name, year, certNumber, imagePrevie
       id="certificate-preview"
       className="relative w-[1123px] h-[794px] bg-white shadow-xl"
       style={{
-        backgroundImage: "url('/Template_RIA.jpg')",
+        backgroundImage: "url('/TemplateRIA.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
@@ -50,13 +51,21 @@ export default function CertificatePreview({ name, year, certNumber, imagePrevie
         />
       )}
       <span className="absolute top-[605px] left-[220px] text-sm text-black">A.134</span>
-      <span className="absolute top-[670px] left-[110px] text-xs text-black">Arch. Emmanuel Nyirinkindi</span>
+      <span className="absolute top-[635px] left-[115px] text-sm text-black">
+        <img src="/sign_emm.png" alt="Signature Emmanuel" className="w-[100px] h-auto" />
+      </span>      <span className="absolute top-[670px] left-[110px] text-xs text-black">Arch. Emmanuel Nyirinkindi</span>
 
       <div className="absolute top-[465px] right-[50px]">
         <QRCode value={qrValue} size={100} />
       </div>
       <span className="absolute top-[605px] right-[160px] text-md text-black">20/05/2025</span>
+      <span className="absolute top-[635px] right-[115px] text-sm text-black">
+        <img src="/sign_eu.png" alt="Signature Eudes" className="w-[100px] h-auto" />
+      </span>
       <span className="absolute top-[670px] right-[140px] text-xs text-black">Arch. Eudes Kayumba</span>
+      <p className="absolute top-[720px] left-0 right-0 text-white text-center py-1 font-bold" style={{ fontSize: 10.5 }}>
+        THIS CERTIFICATE IS VALID FOR {new Date().getFullYear()} ONLY AND IS HELD SUBJECT TO THE PROVISIONS OF BUILDING CODES AND BY LAWS
+      </p>
     </div>
   );
 }
