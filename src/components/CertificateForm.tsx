@@ -60,7 +60,7 @@ export default function CertificateForm() {
         const canvas = await html2canvas(certElement);
         console.log(canvas);
         const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF({ orientation: "landscape", unit: "px", format: [800 * 2, 600 * 2] });
+        const pdf = new jsPDF({ orientation: "landscape", unit: "px", format: [800 * 2, 600] });
         pdf.addImage(imgData, "PNG", 0, 0, 800, 600);
         // await saveToDatabase();
         pdf.save(`${form.certNumber || "certificate"}.pdf`);
