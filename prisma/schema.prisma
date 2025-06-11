@@ -31,15 +31,23 @@ model User {
 }
 
 model Certificate {
-  id                     String   @id @default(cuid())
+  id                     String    @id @default(cuid())
   name                   String
   year                   String
-  certNumber             String   @unique
+  certNumber             String    @unique
   imageUrl               String?
-  createdAt              DateTime @default(now())
-  registeredSerialNumber String?  @unique
-  Members                Members? @relation(fields: [membersId], references: [id])
-  membersId              String?
+  createdAt              DateTime  @default(now())
+  updatedAt              DateTime  @updatedAt
+  registeredSerialNumber String?   @unique
+  status                 String    @default("PENDING") // PENDING, ACTIVE, REVOKED
+  expiryDate             DateTime?
+  issuedBy               String
+  description            String?
+  category               String?
+  members                Members?  @relation(fields: [memberId], references: [id])
+  memberId               String?
+  verificationCode       String    @unique
+  metadata               Json? // For additional certificate data
 }
 
 model Members {
