@@ -60,7 +60,7 @@ export default function CertificateForm() {
         const canvas = await html2canvas(certElement);
         console.log(canvas);
         const imgData = canvas.toDataURL("image/png");
-        const pdf = new jsPDF({ orientation: "landscape", unit: "px", format: [800 * 2, 600] });
+        const pdf = new jsPDF({ orientation: "landscape", unit: "px", format: [800, 600] });
         pdf.addImage(imgData, "PNG", 0, 0, 800, 600);
         // await saveToDatabase();
         pdf.save(`${form.certNumber || "certificate"}.pdf`);
@@ -69,14 +69,8 @@ export default function CertificateForm() {
     return (
         <div className="flex flex-col gap-4">
             <input name="name" placeholder="Full Name" onChange={handleChange} className="border p-2" />
-            <input name="certNumber" placeholder="Certificate Number" onChange={handleChange} className="border p-2" />
-            <input name="year" placeholder="Year" onChange={handleChange} className="border p-2" />
             <input type="file" accept="image/*" onChange={handleChange} className="border p-2" />
-            <select name="member" onChange={handleSelect} className="border p-2">
-                <option value="">Select Member Type</option>
-                <option value="Planner">Planner</option>
-                <option value="Architect">Architect</option>
-            </select>
+
             <button
                 onClick={handleDownload}
                 className="bg-blue-600 text-white p-2 rounded w-fit mt-2 hover:bg-blue-700"
