@@ -58,9 +58,6 @@ export default function CertificatePreview({ name, year, certNumber, imagePrevie
         In witness whereof the common seal has been here to affixed at a meeting of the
         <span className="font-bold"> Board of Registration and the law</span><br></br>
         <span className="font-bold">No: 26/2012 governing the profession of Architecture </span> and establishing the Rwanda Institute of Architects.</p>
-      {/* <p className="absolute top-[370px] left-[390px] text-black">
-  Certificate No: {certNumber}
-</p> */}
 
       {imagePreview && (
         <img
@@ -70,23 +67,27 @@ export default function CertificatePreview({ name, year, certNumber, imagePrevie
         />
       )}
       <span className="absolute top-[605px] left-[220px] text-sm text-black">A.134</span>
-      <span className="absolute top-[635px] left-[115px] text-sm text-black">
-        <img src="/sign_emm.png" alt="Signature Emmanuel" className="w-[100px] h-auto" />
-      </span>      <span className="absolute top-[670px] left-[110px] text-xs text-black">Arch. Emmanuel Nyirinkindi</span>
-      <span className="absolute top-[620px] left-[255px] text-sm text-black">
-        <img src="/bg_RIA.png" alt="Signature Eudes" className="w-[100px] h-auto" />
+      <span className="absolute top-[635px] left-[120px] text-sm text-black">
+        <img src="/sign_emm.png" alt="Signature Emmanuel" className="w-[150px] h-auto" />
+      </span>
+      <span className="absolute top-[670px] left-[110px] text-xs text-black">Arch. Emmanuel Nyirinkindi</span>
+      <span className="absolute top-[595px] left-[255px] text-sm text-black">
+        <img src="/bg_RIA.png" alt="Signature RIA" className="w-[140px] h-auto" />
+      </span>
+      <span className="absolute top-[600px] right-[400px] text-sm text-black">
+        <img src="/senior.png" alt="Senior" className="w-[400px] h-auto" />
       </span>
       <div className="absolute top-[465px] right-[50px]">
         <QRCode value={qrValue} size={100} />
       </div>
       <span className="absolute top-[605px] right-[160px] text-md text-black">20/05/2025</span>
       <span className="absolute top-[635px] right-[115px] text-sm text-black">
-        <img src="/sign_eu.png" alt="Signature Eudes" className="w-[100px] h-auto" />
+        <img src="/sign_eu.png" alt="Signature Eudes" className="w-[150px] h-auto" />
       </span>
 
       <span className="absolute top-[670px] right-[140px] text-xs text-black">Arch. Eudes Kayumba</span>
-      <span className="absolute top-[570px] right-[40px] text-sm text-black">
-        <img src="/bg_RB.png" alt="Signature Eudes" className="w-[150px] h-auto" />
+      <span className="absolute top-[540px] right-[30px] text-sm text-black">
+        <img src="/bg_RB.png" alt="Signature Eudes" className="w-[200px] h-auto" />
       </span>
       <p className="absolute top-[720px] left-0 right-0 text-white text-center py-1 font-bold" style={{ fontSize: 10.5 }}>
         THIS CERTIFICATE IS VALID FOR {new Date().getFullYear()} ONLY AND IS HELD SUBJECT TO THE PROVISIONS OF BUILDING CODES AND BY LAWS

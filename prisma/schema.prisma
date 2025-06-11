@@ -14,11 +14,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  ADMIN
+  MEMBER
+  USER
+}
+
 model User {
   id        String   @id @default(cuid())
   email     String   @unique
   name      String?
   password  String?
+  role      Role     @default(USER)
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -31,8 +38,21 @@ model Certificate {
   imageUrl               String?
   createdAt              DateTime @default(now())
   registeredSerialNumber String?  @unique
+  Members                Members? @relation(fields: [membersId], references: [id])
+  membersId              String?
 }
 
 model Members {
-  id String @id @default(cuid())
+  id           String        @id @default(cuid())
+  firstName    String
+  lastName     String
+  email        String        @unique
+  phoneNumber  String?
+  address      String?
+  membershipId String        @unique
+  dateJoined   DateTime      @default(now())
+  status       String        @default("ACTIVE")
+  certificates Certificate[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
 }
