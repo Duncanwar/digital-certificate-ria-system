@@ -86,8 +86,8 @@ export default function CertificatePreview({ name, year, certNumber, imagePrevie
       </span>
 
       <span className="absolute top-[670px] right-[140px] text-xs text-black">Arch. Eudes Kayumba</span>
-      <span className="absolute top-[540px] right-[30px] text-sm text-black">
-        <img src="/bg_RB.png" alt="Signature Eudes" className="w-[200px] h-auto" />
+      <span className="absolute top-[530px] right-[40px] text-sm text-black">
+        <img src="/bg_RB.png" alt="Signature Eudes" className="w-[230px] h-auto" />
       </span>
       <p className="absolute top-[720px] left-0 right-0 text-white text-center py-1 font-bold" style={{ fontSize: 10.5 }}>
         THIS CERTIFICATE IS VALID FOR {new Date().getFullYear()} ONLY AND IS HELD SUBJECT TO THE PROVISIONS OF BUILDING CODES AND BY LAWS
